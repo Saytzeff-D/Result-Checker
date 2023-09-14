@@ -59,7 +59,7 @@ def create():
     os.mkdir("C:\Python-Works\FileHandling\Grade-E")
     os.mkdir("C:\Python-Works\FileHandling\Grade-F")
     print(f"{Fore.GREEN}\n6 Folders Created Successfully\n{'-'*98}")
-    print(Fore.RED + 'Press 1 Continue or 0 to Exit...')
+    print(Fore.RED + 'Press 1 Continue or 0 to Exit...\n' + '-'*98)
     res = input(">>>> ")
     if res == '1':
         peruse()
@@ -75,27 +75,28 @@ def remove():
     shutil.rmtree("C:\Python-Works\FileHandling\Grade-D")
     shutil.rmtree("C:\Python-Works\FileHandling\Grade-E")
     shutil.rmtree("C:\Python-Works\FileHandling\Grade-F")
-    print('Press 1 to Exit Operation or 0 to Recreate Deleted Folders...')
+    print(f"\n{Fore.GREEN}Folders Deleted Successfully\n")
+    print(f"{Fore.BLUE}>>> Press 1 to Exit Operation or 0 to Recreate Deleted Folders...\n{'-'*98}")
     res = input(">>>> ")
     if res == '0':
         create()
     elif res == '1':
         sys.exit()
     else:
-        print('Invalid Response...')
+        print('>>> Invalid Response...')
             
 if _dir_gradeAexist and _dir_gradeBexist and _dir_gradeCexist and _dir_gradeDexist and _dir_gradeEexist and _dir_gradeFexist:
     print(Fore.RED + 'Folders Already Exist')
-    print(f"{'-'*98}\nPress ENTER to Remove all Grades Folder or 1 to Continue with Grades Separation")
-    res = input(">>>> ")
+    print(f"{'-'*98}\nPress ENTER to Remove all Folder or 1 to Exit")
+    res = input("")
     if res == '':
         remove()
     elif res == '1':
-        peruse()
+        sys.exit()
     else:
-        print('Invalid Response...')    
+        print('\nInvalid Response...')    
 else:
-    print(Fore.YELLOW + 'Creating Folders...')
+    print(Fore.YELLOW+'\n>>> Creating Folders...')
     time.sleep(2)
     create()
     
